@@ -5,16 +5,14 @@ import asyncio
 import function
 import os
 
-url = "https://www.apple.com/tw/shop/refurbished/mac"  # url here
-channel_id = 1058326938101502053
+url = "Target URL"  # url here
+channel_id = # channel id stored here
 sec = 30*60  # minute * 60
 
 
 intents = discord.Intents.all()
 intents.message_content = True
 client = discord.Client(intents=intents)
-
-# 1058298342859350019
 
 with open('items.json', "r", encoding='utf8') as file:
     data = json.load(file)
@@ -38,7 +36,7 @@ async def on_ready():
     while True:
         flag = function.check_status(url)
         if flag:
-            await bot.get_channel(channel_id).send(f"<@{661625091603562507}>")
+            await bot.get_channel(channel_id).send(f"<@{user_id}>") # user id stored here
             await bot.get_channel(channel_id).send('目前有偵測到物件在網站上')
         else:
             await bot.get_channel(channel_id).send('目前沒東西')
